@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>WebCraft — Digital Gifts & Invites</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Poppins',sans-serif;background:#fff7fb;color:#2d1a2e;overflow-x:hidden;}
+  a{text-decoration:none;color:inherit;}
+
+  /* NAV */
+  nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 6%;background:#fff;box-shadow:0 2px 12px #f0c0d820;}
+  .logo{font-size:1.5rem;font-weight:800;background:linear-gradient(135deg,#e84fa0,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .nav-cta{background:linear-gradient(135deg,#e84fa0,#a855f7);color:#fff;border:none;padding:.55rem 1.4rem;border-radius:50px;font-family:'Poppins',sans-serif;font-weight:600;font-size:.9rem;cursor:pointer;transition:.2s;}
+  .nav-cta:hover{opacity:.88;}
+
+  /* HERO */
+  .hero{text-align:center;padding:5rem 6% 3.5rem;background:linear-gradient(160deg,#fff7fb 60%,#f3e8ff 100%);}
+  .hero-tag{display:inline-block;background:#fde8f5;color:#c026a5;font-size:.78rem;font-weight:600;padding:.35rem 1rem;border-radius:50px;margin-bottom:1.2rem;letter-spacing:.5px;}
+  .hero h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:800;line-height:1.2;margin-bottom:1rem;}
+  .hero h1 span{background:linear-gradient(135deg,#e84fa0,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .hero p{font-size:1.05rem;color:#7a5a8a;max-width:560px;margin:0 auto 2rem;}
+  .hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+  .btn-primary{background:linear-gradient(135deg,#e84fa0,#a855f7);color:#fff;padding:.8rem 2rem;border-radius:50px;font-weight:700;font-size:1rem;transition:.2s;box-shadow:0 4px 18px #e84fa040;}
+  .btn-primary:hover{opacity:.88;transform:translateY(-2px);}
+  .btn-outline{border:2px solid #e84fa0;color:#e84fa0;padding:.75rem 1.8rem;border-radius:50px;font-weight:600;font-size:1rem;transition:.2s;}
+  .btn-outline:hover{background:#fde8f5;}
+  .hero-emoji{font-size:3.5rem;margin-bottom:1rem;display:block;animation:float 3s ease-in-out infinite;}
+  @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+
+  /* SECTION */
+  section{padding:4rem 6%;}
+  .section-title{text-align:center;font-size:clamp(1.5rem,3vw,2rem);font-weight:800;margin-bottom:.5rem;}
+  .section-sub{text-align:center;color:#7a5a8a;font-size:.95rem;margin-bottom:2.5rem;}
+
+  /* OFFERS */
+  .offers{background:#fff;}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;}
+  .card{background:#fff7fb;border-radius:20px;padding:1.8rem 1.5rem;text-align:center;border:1.5px solid #f0c0d8;transition:.25s;}
+  .card:hover{transform:translateY(-5px);box-shadow:0 8px 30px #e84fa020;border-color:#e84fa0;}
+  .card-icon{font-size:2.2rem;margin-bottom:.8rem;}
+  .card h3{font-size:1.05rem;font-weight:700;margin-bottom:.5rem;color:#2d1a2e;}
+  .card p{font-size:.88rem;color:#7a5a8a;line-height:1.6;}
+
+  /* HOW IT WORKS */
+  .how{background:linear-gradient(135deg,#fdf4ff,#fff7fb);}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.5rem;}
+  .step{text-align:center;padding:1.5rem 1rem;}
+  .step-num{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,#e84fa0,#a855f7);color:#fff;font-size:1.3rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto .9rem;}
+  .step h4{font-weight:700;margin-bottom:.4rem;font-size:.98rem;}
+  .step p{font-size:.85rem;color:#7a5a8a;line-height:1.6;}
+
+  /* PRICING */
+  .pricing{background:#fff;}
+  .price-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;max-width:780px;margin:0 auto;}
+  .price-card{border-radius:22px;padding:2rem 1.5rem;text-align:center;border:2px solid #f0c0d8;transition:.25s;background:#fff7fb;}
+  .price-card.popular{background:linear-gradient(135deg,#f9d0ed,#ede0ff);border-color:#a855f7;position:relative;}
+  .price-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px #e84fa020;}
+  .popular-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#e84fa0,#a855f7);color:#fff;font-size:.72rem;font-weight:700;padding:.3rem 1.1rem;border-radius:50px;white-space:nowrap;letter-spacing:.4px;}
+  .price-card .plan{font-size:.88rem;font-weight:600;color:#a855f7;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.8px;}
+  .price-card .amount{font-size:2.8rem;font-weight:800;color:#2d1a2e;line-height:1;}
+  .price-card .amount span{font-size:1rem;font-weight:500;color:#7a5a8a;}
+  .price-card .desc{font-size:.85rem;color:#7a5a8a;margin:1rem 0 1.5rem;line-height:1.6;}
+  .price-card .btn-primary{display:block;font-size:.9rem;padding:.65rem 1.2rem;}
+
+  /* CONTACT */
+  .contact{background:linear-gradient(135deg,#fdf4ff,#fff0f9);text-align:center;}
+  .contact-box{max-width:560px;margin:0 auto;background:#fff;border-radius:24px;padding:2.5rem 2rem;border:1.5px solid #f0c0d8;box-shadow:0 4px 30px #e84fa015;}
+  .contact-box p{color:#7a5a8a;font-size:.95rem;margin-bottom:1.5rem;}
+  .contact-info{display:flex;flex-direction:column;gap:.9rem;margin-bottom:1.8rem;}
+  .contact-row{display:flex;align-items:center;gap:.75rem;background:#fff7fb;border-radius:12px;padding:.8rem 1.1rem;font-size:.92rem;font-weight:500;color:#2d1a2e;border:1px solid #f0c0d8;}
+  .contact-row .icon{font-size:1.1rem;width:20px;text-align:center;}
+  .contact-row a{color:#a855f7;font-weight:600;}
+  .order-btn{display:inline-block;background:linear-gradient(135deg,#e84fa0,#a855f7);color:#fff;padding:.9rem 2.5rem;border-radius:50px;font-weight:700;font-size:1.05rem;box-shadow:0 4px 20px #e84fa040;transition:.2s;}
+  .order-btn:hover{opacity:.88;transform:translateY(-2px);}
+  .quick-tag{display:inline-block;background:#d1fae5;color:#065f46;font-size:.75rem;font-weight:600;padding:.25rem .8rem;border-radius:50px;margin-top:.9rem;}
+
+  /* FOOTER */
+  footer{background:#2d1a2e;color:#c9a8d8;text-align:center;padding:2rem 6%;font-size:.85rem;}
+  footer .logo-f{font-size:1.3rem;font-weight:800;background:linear-gradient(135deg,#e84fa0,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.5rem;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">WebCraft 🎁</div>
+  <a href="https://wa.me/917862061053" class="nav-cta">DM to Order</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-emoji">🎀</span>
+  <div class="hero-tag">✨ Cute Digital Gifts & Invites</div>
+  <h1>Share Love in a <span>Cute Link</span>, Delivered Instantly</h1>
+  <p>Beautiful digital gifts and wedding invites — crafted with care, sent in seconds. No waiting, just wow.</p>
+  <div class="hero-btns">
+    <a href="https://wa.me/917862061053" class="btn-primary">📩 DM Us to Order</a>
+    <a href="#pricing" class="btn-outline">See Pricing</a>
+  </div>
+</section>
+
+<!-- OFFERS -->
+<section class="offers">
+  <h2 class="section-title">What We Create</h2>
+  <p class="section-sub">Adorable digital experiences for every special moment</p>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🔗</div>
+      <h3>Cute Link Gifts</h3>
+      <p>A surprise wrapped in a link — share it anywhere, anytime. Perfect for birthdays, anniversaries & more.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">💌</div>
+      <h3>Cute Delivery</h3>
+      <p>Your gift delivered beautifully — animated, personalised, and designed to make them smile.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">💍</div>
+      <h3>Wedding Invites</h3>
+      <p>Elegant digital wedding invitations your guests will love. Share on WhatsApp, Instagram & more.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <h2 class="section-title">How It Works</h2>
+  <p class="section-sub">Super simple — just 3 steps</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4>Choose & Tell Us</h4>
+      <p>Pick a gift type and share your details with us via DM or call.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4>We Customise</h4>
+      <p>Our team crafts your personalised digital gift or invite with care.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4>Get Your Link</h4>
+      <p>Receive your cute link — share it & make someone's day special!</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <h2 class="section-title">Simple Pricing</h2>
+  <p class="section-sub">Affordable joy — starting at just ₹200</p>
+  <div class="price-cards">
+    <div class="price-card">
+      <p class="plan">Starter</p>
+      <div class="amount">₹200<span></span></div>
+      <p class="desc">Cute digital gift link — quick, sweet and shareable.</p>
+      <a href="https://wa.me/917862061053" class="btn-primary">Order Now</a>
+    </div>
+    <div class="price-card popular">
+      <span class="popular-badge">⭐ Most Popular</span>
+      <p class="plan">Standard</p>
+      <div class="amount">₹250<span></span></div>
+      <p class="desc">Animated cute delivery — personalised and extra special.</p>
+      <a href="https://wa.me/917862061053" class="btn-primary">Order Now</a>
+    </div>
+    <div class="price-card">
+      <p class="plan">Wedding</p>
+      <div class="amount">₹300<span></span></div>
+      <p class="desc">Elegant digital wedding invite — share with all your guests.</p>
+      <a href="https://wa.me/917862061053" class="btn-primary">Order Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact">
+  <h2 class="section-title">Get in Touch</h2>
+  <p class="section-sub">We're just a message away — quick delivery guaranteed!</p>
+  <div class="contact-box">
+    <p>DM us, call us, or drop an email. We'll get back to you fast and make something magical for you. 🌸</p>
+    <div class="contact-info">
+      <div class="contact-row"><span class="icon">📞</span><span>Call / WhatsApp: <a href="tel:+917862061053">7862061053</a></span></div>
+      <div class="contact-row"><span class="icon">✉️</span><span>Email: <a href="mailto:webcraft531@gmail.com">webcraft531@gmail.com</a></span></div>
+    </div>
+    <a href="https://wa.me/917862061053" class="order-btn">💬 DM Us to Order</a>
+    <div><span class="quick-tag">⚡ Quick Delivery</span></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo-f">WebCraft</div>
+  <p>© 2025 WebCraft. All rights reserved. Made with 💖 for every celebration.</p>
+</footer>
+
+</body>
+</html>
